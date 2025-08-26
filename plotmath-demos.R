@@ -1,6 +1,7 @@
 # Examples from grDevices::plotmath helpfil
 if (Sys.info()['sysname'] == "Darwin") os <- "macos"
 if (Sys.info()['sysname'] == "Linux") os <- "linux"
+if (Sys.info()['sysname'] == "Windows") os <- "windows"
 
 library(ragg)
 library(glue)
