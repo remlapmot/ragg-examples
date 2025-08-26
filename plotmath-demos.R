@@ -167,7 +167,7 @@ dev.off()
 agg_png(glue('img/demo-4-{os}.png'))
 # Need fewer, taller rows for fractions ...
 # cheat a bit to save pages
-par(new = TRUE)
+# par(new = TRUE)
 nr <- 10
 nc <- 1
 make.table(nr, nc)
