@@ -6,6 +6,9 @@ if (Sys.info()['sysname'] == "Windows") os <- "windows"
 library(ragg)
 library(glue)
 
+reso <- 300
+scl <- reso/72
+
 # demo 1
 #  Copyright (C) 2002-2016 The R Core Team
 
@@ -51,10 +54,11 @@ draw.plotmath.cell <- function(expr, i, nr, string = NULL) {
   rect((2*(c - 1) + .5), -(r - .5), (2*c + .5), -(r + .5), border="grey")
 }
 
+# demo 1
 nr <- 20
 nc <- 2
 
-agg_png(glue('img/demo-1-{os}.png'))
+agg_png(glue('img/demo-1-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 oldpar <- make.table(nr, nc)
 i <- 0
 draw.title.cell("Arithmetic Operators", i, nr); i <- i + 1
@@ -100,7 +104,7 @@ draw.plotmath.cell(expression(underline(x)), i, nr); i <- i + 1
 dev.off()
 
 # demo 2
-agg_png(glue('img/demo-2-{os}.png'))
+agg_png(glue('img/demo-2-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 # Need fewer, wider columns for ellipsis ...
 nr <- 20
 nc <- 2
@@ -149,7 +153,7 @@ draw.plotmath.cell(expression(30 * second), i, nr); i <- i + 1
 dev.off()
 
 # demo 3
-agg_png(glue('img/demo-3-{os}.png'))
+agg_png(glue('img/demo-3-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 # Need even fewer, wider columns for typeface and style ...
 nr <- 20
 nc <- 1
@@ -165,7 +169,7 @@ draw.plotmath.cell(expression(x ~~ y), i, nr); i <- i + 1
 dev.off()
 
 # demo 4
-agg_png(glue('img/demo-4-{os}.png'))
+agg_png(glue('img/demo-4-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 # Need fewer, taller rows for fractions ...
 # cheat a bit to save pages
 # par(new = TRUE)
@@ -182,7 +186,7 @@ draw.plotmath.cell(expression(atop(x, y)), i, nr); i <- i + 1
 dev.off()
 
 # demo 5
-agg_png(glue('img/demo-5-{os}.png'))
+agg_png(glue('img/demo-5-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 # Need fewer, taller rows and fewer, wider columns for big operators ...
 nr <- 10
 nc <- 1
@@ -201,7 +205,7 @@ draw.plotmath.cell(expression(sup(S)), i, nr); i <- i + 1
 dev.off()
 
 # demo 6
-agg_png(glue('img/demo-6-{os}.png'))
+agg_png(glue('img/demo-6-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 nr <- 12
 nc <- 1
 make.table(nr, nc)
