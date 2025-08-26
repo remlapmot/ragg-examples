@@ -2,6 +2,7 @@
 if (Sys.info()['sysname'] == "Darwin") os <- "macos"
 if (Sys.info()['sysname'] == "Linux") os <- "linux"
 
+library(ragg)
 library(glue)
 
 # Example 1
@@ -20,7 +21,7 @@ dev.off()
 
 # Example 2
 ## How to combine "math" and numeric variables :
-agg_png('img/plotmath-ex2-{os}.png')
+agg_png(glue('img/plotmath-ex2-{os}.png'))
 plot(1:10, type="n", xlab="", ylab="", main = "plot math & numbers")
 theta <- 1.23 ; mtext(bquote(hat(theta) == .(theta)), line= .25)
 for(i in 2:9)
@@ -37,7 +38,7 @@ dev.off()
 
 # Example 3
 ## note the "{ .. }" trick to get "chained" equations:
-agg_png('img/plotmath-ex3-{os}.png')
+agg_png(glue('img/plotmath-ex3-{os}.png'))
 plot(1:10, 1:10, main = quote(1 <= {1 < 2}))
 text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
 text(4, 8.4, "expression(hat(beta) == (X^t * X)^{-1} * X^t * y)",
@@ -52,7 +53,7 @@ dev.off()
 
 # Example 4
 ## some other useful symbols
-agg_png('img/plotmath-ex4-{os}.png')
+agg_png(glue('img/plotmath-ex4-{os}.png'))
 plot.new(); plot.window(c(0,4), c(15,1))
 text(1, 1, "universal", adj = 0); text(2.5, 1,  "\\042")
 text(3, 1, expression(symbol("\042")))
