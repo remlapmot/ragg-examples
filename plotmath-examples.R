@@ -6,8 +6,11 @@ if (Sys.info()['sysname'] == "Windows") os <- "windows"
 library(ragg)
 library(glue)
 
+reso <- 300
+scl <- reso/72
+
 # Example 1
-agg_png(glue('img/plotmath-ex1-{os}.png'))
+agg_png(glue('img/plotmath-ex1-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 x <- seq(-4, 4, length.out = 101)
 y <- cbind(sin(x), cos(x))
 matplot(x, y, type = "l", xaxt = "n",
@@ -22,7 +25,7 @@ dev.off()
 
 # Example 2
 ## How to combine "math" and numeric variables :
-agg_png(glue('img/plotmath-ex2-{os}.png'))
+agg_png(glue('img/plotmath-ex2-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 plot(1:10, type="n", xlab="", ylab="", main = "plot math & numbers")
 theta <- 1.23 ; mtext(bquote(hat(theta) == .(theta)), line= .25)
 for(i in 2:9)
@@ -39,7 +42,7 @@ dev.off()
 
 # Example 3
 ## note the "{ .. }" trick to get "chained" equations:
-agg_png(glue('img/plotmath-ex3-{os}.png'))
+agg_png(glue('img/plotmath-ex3-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 plot(1:10, 1:10, main = quote(1 <= {1 < 2}))
 text(4, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y))
 text(4, 8.4, "expression(hat(beta) == (X^t * X)^{-1} * X^t * y)",
@@ -54,7 +57,7 @@ dev.off()
 
 # Example 4
 ## some other useful symbols
-agg_png(glue('img/plotmath-ex4-{os}.png'))
+agg_png(glue('img/plotmath-ex4-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 plot.new(); plot.window(c(0,4), c(15,1))
 text(1, 1, "universal", adj = 0); text(2.5, 1,  "\\042")
 text(3, 1, expression(symbol("\042")))
