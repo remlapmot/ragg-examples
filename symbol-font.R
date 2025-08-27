@@ -569,3 +569,24 @@ dev.off()
 agg_png(glue('img/issue-89-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
 plot(data = mtcars, disp ~ mpg, xlab = expression("efficiency" ~ mpg^-1))
 dev.off()
+
+# issue 193
+library(grid)
+
+# Render as text grobs
+vals <- c("Sr", "Fe")
+grobs <- lapply(vals, textGrob)
+
+# Confirm label is correct
+grobs[[1]]$label
+grobs[[2]]$label
+
+# Create device for temp file
+agg_png(glue('issue-193-{os}.png'))
+
+# Draw the grobs
+grid.newpage()
+grid.draw(grobs[[1]])
+grid.draw(grobs[[2]])
+
+dev.off()
