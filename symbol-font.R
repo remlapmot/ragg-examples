@@ -565,3 +565,7 @@ text(3, 10, expression(symbol("\341")))
 text(1, 11, "rightangle", adj = 0); text(2.5, 11,  "\\361")
 text(3, 11, expression(symbol("\361")))
 dev.off()
+
+agg_png(glue('img/issue-89-{os}.png'), units = "px", res = reso, height = scl*480, width = scl*480)
+plot(data = mtcars, disp ~ mpg, xlab = expression("efficiency" ~ mpg^-1))
+dev.off()
