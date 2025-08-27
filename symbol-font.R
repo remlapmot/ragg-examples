@@ -570,7 +570,7 @@ agg_png(glue('img/issue-89-{os}.png'), units = "px", res = reso, height = scl*48
 plot(data = mtcars, disp ~ mpg, xlab = expression("efficiency" ~ mpg^-1))
 dev.off()
 
-# issue 193
+# issue 193 - not fixed with fonts
 library(grid)
 
 # Render as text grobs
